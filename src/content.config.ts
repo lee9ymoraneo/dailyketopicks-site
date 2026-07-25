@@ -7,7 +7,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.union([z.string(), z.date()]),
-    author: z.string().default('FamilyID Defense Team'),
+    author: z.string().default('Daily Keto Picks Team'),
     category: z.string().default('General'),
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),
