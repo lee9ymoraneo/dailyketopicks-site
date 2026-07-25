@@ -19,14 +19,14 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install dependencies
+      - name: Install and Build
+        shell: bash
         run: |
-          which npm
+          export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
+          node --version
           npm --version
           npm install
-
-      - name: Build
-        run: npm run build
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
