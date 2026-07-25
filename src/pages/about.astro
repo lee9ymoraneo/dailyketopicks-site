@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="About Us - DeskHiker" description="Learn about DeskHiker and our mission to inspire outdoor adventures.">
+  <Header />
+
+  <main class="main">
+    <section class="page-header">
+      <div class="container">
+        <h1>About DeskHiker</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container content-width">
+        <div class="about-content">
+          <h2>Our Story</h2>
+          <p>
+            DeskHiker was born from a passion for the outdoors. We believe that everyone deserves
+            to experience the beauty and tranquility of nature, whether it's a simple day hike
+            or a multi-day backpacking adventure.
+          </p>
+
+          <h2>Our Mission</h2>
+          <p>
+            Our mission is to inspire and equip outdoor enthusiasts of all levels with the
+            knowledge, gear recommendations, and trail guides they need to explore the great
+            outdoors safely and confidently.
+          </p>
+
+          <h2>What We Cover</h2>
+          <ul>
+            <li><strong>Hiking:</strong> Trail guides, tips, and techniques for all skill levels</li>
+            <li><strong>Camping:</strong> Gear reviews, campsite guides, and camping hacks</li>
+            <li><strong>Backpacking:</strong> Multi-day trip planning and ultralight gear</li>
+            <li><strong>Outdoor Gear:</strong> Honest reviews and buying guides</li>
+          </ul>
+
+          <h2>Meet the Team</h2>
+          <p>
+            Our team consists of experienced hikers, campers, and outdoor enthusiasts who
+            are passionate about sharing their knowledge and adventures.
+          </p>
+
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="avatar"></div>
+              <h3>Alex Trailson</h3>
+              <p>Founder & Lead Writer</p>
+            </div>
+            <div class="team-member">
+              <div class="avatar"></div>
+              <h3>Jordan Peak</h3>
+              <p>Gear Reviewer</p>
+            </div>
+          </div>
+
+          <h2>Contact Us</h2>
+          <p>
+            Have questions or suggestions? We'd love to hear from you!
+            Visit our <a href="/contact">contact page</a> or email us at
+            <a href="mailto:hello@deskhiker.com">hello@deskhiker.com</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .main { flex: 1; padding-top: 64px; }
+
+  .page-header {
+    background: var(--color-bg-secondary);
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .page-header h1 { font-size: 2.5rem; }
+
+  .content { padding: 3rem 0; }
+
+  .about-content h2 { font-size: 1.5rem; margin: 2rem 0 1rem; }
+  .about-content h2:first-child { margin-top: 0; }
+  .about-content p { margin-bottom: 1rem; line-height: 1.8; }
+  .about-content ul { margin: 1rem 0; padding-left: 1.5rem; }
+  .about-content li { margin-bottom: 0.5rem; line-height: 1.8; }
+  .about-content strong { color: var(--color-text); }
+
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0; }
+
+  .team-member {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+  }
+
+  .avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--gradient-primary); margin: 0 auto 1rem; }
+  .team-member h3 { margin-bottom: 0.25rem; }
+  .team-member p { color: var(--color-text-muted); font-size: 0.9rem; }
+</style>
