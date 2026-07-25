@@ -1,0 +1,598 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const featuredPosts = [
+  {
+    title: 'Ultimate Keto Meal Plan for Beginners',
+    description: 'Start your keto journey with our comprehensive meal plan.',
+    category: 'Meal Plans',
+    readTime: '10 min read',
+    slug: 'ultimate-keto-meal-plan-for-beginners',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop',
+  },
+  {
+    title: '15 Easy Keto Breakfast Recipes',
+    description: 'Delicious low-carb breakfast ideas to start your day.',
+    category: 'Recipes',
+    readTime: '8 min read',
+    slug: '15-easy-keto-breakfast-recipes',
+    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&h=500&fit=crop',
+  },
+  {
+    title: 'What is the Keto Diet? Complete Guide',
+    description: 'Everything you need to know about the ketogenic diet.',
+    category: 'Keto Basics',
+    readTime: '12 min read',
+    slug: 'what-is-the-keto-diet-complete-guide',
+    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&h=500&fit=crop',
+  },
+];
+
+const latestPosts = [
+  {
+    title: 'Top 10 Keto Snacks for Weight Loss',
+    date: 'Mar 15, 2025',
+    category: 'Recipes',
+    slug: 'top-10-keto-snacks-for-weight-loss',
+    image: 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=400&h=250&fit=crop',
+    excerpt: 'Healthy keto snacks that help you lose weight.',
+  },
+  {
+    title: 'Keto for Beginners: Getting Started',
+    date: 'Feb 28, 2025',
+    category: 'Keto Basics',
+    slug: 'keto-for-beginners-getting-started',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop',
+    excerpt: 'Your complete guide to starting keto.',
+  },
+  {
+    title: 'Best Keto Foods to Buy at Grocery Store',
+    date: 'Jan 10, 2025',
+    category: 'Keto Basics',
+    slug: 'best-keto-foods-to-buy-at-grocery-store',
+    image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=250&fit=crop',
+    excerpt: 'Essential keto foods for your shopping list.',
+  },
+  {
+    title: 'How to Calculate Your Keto Macros',
+    date: 'Dec 5, 2024',
+    category: 'Keto Basics',
+    slug: 'how-to-calculate-your-keto-macros',
+    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=250&fit=crop',
+    excerpt: 'Master your macro calculations for keto success.',
+  },
+  {
+    title: 'Keto Dinner Recipes Under 30 Minutes',
+    date: 'Nov 15, 2024',
+    category: 'Recipes',
+    slug: 'keto-dinner-recipes-under-30-minutes',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=250&fit=crop',
+    excerpt: 'Quick and easy keto dinners for busy nights.',
+  },
+  {
+    title: 'Benefits of the Keto Diet',
+    date: 'Oct 20, 2024',
+    category: 'Keto Basics',
+    slug: 'benefits-of-the-keto-diet',
+    image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&h=250&fit=crop',
+    excerpt: 'Discover the amazing benefits of going keto.',
+  },
+];
+
+const stats = [
+  { value: '200+', label: 'Keto Recipes' },
+  { value: '100K+', label: 'Happy Readers' },
+  { value: '4.9', label: 'User Rating' },
+  { value: '24/7', label: 'Expert Support' },
+];
+
+const categories = [
+  { name: 'Recipes', icon: '🍳', count: 20, slug: 'recipes' },
+  { name: 'Meal Plans', icon: '📅', count: 12, slug: 'meal-plans' },
+  { name: 'Keto Basics', icon: '📚', count: 15, slug: 'keto-basics' },
+  { name: 'Weight Loss', icon: '⚖️', count: 10, slug: 'weight-loss' },
+  { name: 'Nutrition', icon: '🥗', count: 8, slug: 'nutrition' },
+  { name: 'Success Stories', icon: '🏆', count: 5, slug: 'success-stories' },
+];
+---
+
+<Base title="Daily Keto Picks - Your Daily Guide to Keto Living" description="Expert keto recipes, meal plans, and tips for successful weight loss and healthy living.">
+  <Header />
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="floating-icons">
+          <div class="float-icon float-icon-1">🥑</div>
+          <div class="float-icon float-icon-2">🥓</div>
+          <div class="float-icon float-icon-3">🧀</div>
+          <div class="float-icon float-icon-4">🥗</div>
+        </div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Trusted by 100,000+ Keto Enthusiasts
+        </div>
+        <h1>Your Daily Guide to<br/><span class="gradient-text">Keto Living</span></h1>
+        <p class="hero-description">
+          Expert keto recipes, meal plans, and tips for successful weight loss and healthy living.
+        </p>
+        <div class="hero-actions">
+          <a href="/blog" class="btn btn-primary">
+            Explore Recipes
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="/guides" class="btn btn-secondary">
+            Keto Guides
+          </a>
+        </div>
+        <div class="hero-stats">
+          {stats.map(stat => (
+            <div class="stat-item">
+              <span class="stat-value">{stat.value}</span>
+              <span class="stat-label">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="tag">Featured</span>
+            <h2>Essential Keto Guides</h2>
+            <p>Start your keto journey with our most popular guides.</p>
+          </div>
+          <a href="/blog" class="btn btn-secondary">
+            View All Recipes
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="featured-grid">
+          {featuredPosts.map((post, index) => (
+            <article class={`featured-card glass-card ${index === 0 ? 'featured-main' : ''}`}>
+              <div class="featured-image">
+                <img src={post.image} alt={post.title} loading="lazy" />
+                <div class="featured-overlay">
+                  <span class="featured-category">{post.category}</span>
+                </div>
+              </div>
+              <div class="featured-content">
+                <h3><a href={`/posts/${post.slug}`}>{post.title}</a></h3>
+                <p>{post.description}</p>
+                <div class="featured-meta">
+                  <span class="read-time">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                    {post.readTime}
+                  </span>
+                  <a href={`/posts/${post.slug}`} class="read-more">
+                    Read More →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section categories-section">
+      <div class="container">
+        <div class="section-header center">
+          <span class="tag">Browse by Topic</span>
+          <h2>Keto Categories</h2>
+          <p>Find the recipes and guides you need for your keto lifestyle.</p>
+        </div>
+        <div class="categories-grid">
+          {categories.map(category => (
+            <a href={`/category/${category.slug}`} class="category-card glass-card">
+              <span class="category-icon">{category.icon}</span>
+              <h3>{category.name}</h3>
+              <span class="category-count">{category.count} guides</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section latest-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="tag">Latest</span>
+            <h2>Recent Articles</h2>
+          </div>
+          <a href="/blog" class="btn btn-secondary btn-sm">
+            View All
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="posts-grid">
+          {latestPosts.map(post => (
+            <article class="post-card glass-card">
+              <a href={`/posts/${post.slug}`} class="post-image">
+                <img src={post.image} alt={post.title} loading="lazy" />
+                <span class="post-category-badge">{post.category}</span>
+              </a>
+              <div class="post-content">
+                <span class="post-date">{post.date}</span>
+                <h3><a href={`/posts/${post.slug}`}>{post.title}</a></h3>
+                <p>{post.excerpt}</p>
+                <a href={`/posts/${post.slug}`} class="read-more">Read More →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
+
+<style>
+  .main { flex: 1; }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+  }
+
+  .hero-orb-1 {
+    width: 600px;
+    height: 600px;
+    background: rgba(16, 185, 129, 0.3);
+    top: -200px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .hero-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(6, 182, 212, 0.2);
+    bottom: -100px;
+    left: -100px;
+    animation: float 15s ease-in-out infinite reverse;
+  }
+
+  .floating-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .float-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.15;
+    animation: floatIcon 10s ease-in-out infinite;
+  }
+
+  .float-icon-1 { top: 20%; left: 10%; animation-delay: 0s; }
+  .float-icon-2 { top: 30%; right: 15%; animation-delay: 2s; }
+  .float-icon-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
+  .float-icon-4 { bottom: 20%; right: 25%; animation-delay: 6s; }
+
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    color: var(--color-primary-light);
+    margin-bottom: 2rem;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-success);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hero h1 { margin-bottom: 1.5rem; line-height: 1.1; }
+
+  .hero-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label { color: var(--color-text-muted); font-size: 0.875rem; }
+
+  .section { padding: 6rem 0; }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    gap: 1rem;
+  }
+
+  .section-header.center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-header h2 { margin: 0.75rem 0 0.5rem; }
+  .section-header p { color: var(--color-text-secondary); max-width: 500px; }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  .featured-card {
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .featured-main { grid-row: span 2; }
+
+  .featured-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .featured-card:hover .featured-image img {
+    transform: scale(1.05);
+  }
+
+  .featured-main .featured-image { height: 100%; min-height: 400px; }
+
+  .featured-overlay { position: absolute; top: 1rem; left: 1rem; }
+
+  .featured-category {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 0.375rem 0.875rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+  }
+
+  .featured-content { padding: 1.5rem; }
+  .featured-content h3 { margin-bottom: 0.75rem; }
+  .featured-content h3 a { color: var(--color-text); }
+  .featured-content h3 a:hover { color: var(--color-primary-light); }
+  .featured-content p { color: var(--color-text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
+
+  .featured-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .read-time {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .read-more {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-primary-light);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .category-card {
+    padding: 1.5rem;
+    text-align: center;
+    transition: all var(--transition-base);
+    text-decoration: none;
+  }
+
+  .category-card:hover { transform: translateY(-4px); border-color: var(--color-primary); }
+  .category-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .category-card h3 { font-size: 1rem; margin-bottom: 0.25rem; color: var(--color-text); }
+  .category-count { color: var(--color-text-muted); font-size: 0.8rem; }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); }
+
+  .post-card .post-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    display: block;
+  }
+
+  .post-card .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .post-card:hover .post-image img { transform: scale(1.08); }
+
+  .post-category-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 0.375rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .post-card .post-content { padding: 1.25rem; }
+  .post-date { display: block; color: var(--color-text-muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
+  .post-card .post-content h3 { font-size: 1.1rem; margin-bottom: 0.75rem; line-height: 1.4; }
+  .post-card .post-content h3 a { color: var(--color-text); }
+  .post-card .post-content h3 a:hover { color: var(--color-primary-light); }
+
+  .post-card .post-content p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-card .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-primary-light);
+    font-weight: 500;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 1024px) {
+    .featured-grid { grid-template-columns: 1fr; }
+    .featured-main { grid-row: auto; }
+    .featured-main .featured-image { min-height: 250px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 6rem 0 3rem; min-height: auto; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-stats { flex-wrap: wrap; gap: 2rem; }
+    .stat-item { flex: 1; min-width: 100px; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .posts-grid { grid-template-columns: 1fr; }
+  }
+</style>
